@@ -39,23 +39,19 @@ export default function App() {
       (_a) => Math.floor((Math.random() * (max - min + 1) + min) / 2) * 2
     )
 
-  const checkCollision = (newSnake) => {
-    if (
-      newSnake[0][0] < 2 ||
-      newSnake[0][0] >= 98 ||
-      newSnake[0][1] < 2 ||
-      newSnake[0][1] >= 98
-    ) {
+  const checkCollision = (head, snk = snake) => {
+    if (head[0] < 2 || head[0] >= 98 || head[1] < 2 || head[1] >= 98)
       return true
+    snk.pop()
+    for (const segment of snk) {
+      if (head[0] === segment[0] && head[1] === segment[1]) return true
     }
+    return false
   }
 
   const checkFoodCollision = (newSnake) => {
     if (newSnake[0][0] === food[0] && newSnake[0][1] === food[1]) {
       let newFood = createFood()
-      while (checkCollision(newFood, newSnake)) {
-        newFood = createFood()
-      }
       setFood(newFood)
       setScore(score + 1)
       return true
@@ -74,10 +70,11 @@ export default function App() {
     const snakeCopy = JSON.parse(JSON.stringify(snake))
     const newSnakeHead = [snakeCopy[0][0] + dir[0], snakeCopy[0][1] + dir[1]]
     snakeCopy.unshift(newSnakeHead)
-    if (checkCollision(snakeCopy)) endGame()
+    if (checkCollision(newSnakeHead)) endGame()
     if (!checkFoodCollision(snakeCopy)) snakeCopy.pop()
     setSnake(snakeCopy)
   }
+
   const startGame = () => {
     setSpeed(100)
     setGameOver(false)

@@ -17,9 +17,10 @@ body {
 .snake {
   height: 2%;
   width: 2%;
+
   background-color: rgb(15, 240, 154);
   position: absolute;
-  border: 1px solid whitesmoke;
+  outline: 1px solid white;
   z-index: 2;
   border-radius: 5px;
 }
