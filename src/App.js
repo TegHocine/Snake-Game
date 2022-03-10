@@ -13,7 +13,7 @@ const DIRECTIONS = {
   37: [-2, 0], // left
   39: [2, 0] // right
 }
-const min = 1
+const min = 2
 const max = 98
 
 export default function App() {
