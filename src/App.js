@@ -5,6 +5,7 @@ import Snake from './snake/Snake'
 import Food from './food/Food'
 
 import './App.css'
+import arrow from './arrow.png'
 
 const BORDER_SIZE = [400, 400]
 const DIRECTIONS = {
@@ -13,7 +14,7 @@ const DIRECTIONS = {
   37: [-2, 0], // left
   39: [2, 0] // right
 }
-const min = 2
+const min = 1
 const max = 98
 
 export default function App() {
@@ -40,7 +41,7 @@ export default function App() {
     )
 
   const checkCollision = (head, snk = snake) => {
-    if (head[0] < 2 || head[0] >= 98 || head[1] < 2 || head[1] >= 98)
+    if (head[0] < 0 || head[0] >= 100 || head[1] < 0 || head[1] >= 100)
       return true
     snk.pop()
     for (const segment of snk) {
@@ -113,6 +114,36 @@ export default function App() {
 
       <div className='start'>
         <button onClick={startGame}>Start Game</button>
+
+        <div className='keymove'>
+          {/* up 38: [0, -2] */}
+          <div className='keys up' onClick={() => moveSnake({ keyCode: 38 })}>
+            <img src={arrow} alt='' />
+          </div>
+
+          <div className='rightandlift'>
+            {/* left 37: [-2, 0] */}
+            <div
+              className='keys left'
+              onClick={() => moveSnake({ keyCode: 37 })}>
+              <img src={arrow} alt='left' />
+            </div>
+
+            <div className='rounded'></div>
+
+            {/* right  39: [2, 0] */}
+            <div
+              className='keys right'
+              onClick={() => moveSnake({ keyCode: 39 })}>
+              <img src={arrow} alt='' />
+            </div>
+          </div>
+
+          {/* down  40: [0, 2] */}
+          <div className='keys down' onClick={() => moveSnake({ keyCode: 40 })}>
+            <img src={arrow} alt='' />
+          </div>
+        </div>
       </div>
     </div>
   )
