@@ -93,6 +93,9 @@ export default function App() {
 
   return (
     <div role='button' tabIndex='0' onKeyDown={(e) => moveSnake(e)}>
+      <p className='text'>
+        Move with keyboard arrow keys or with the directions below
+      </p>
       <div
         className='border'
         style={{

@@ -54,6 +54,12 @@ body {
   letter-spacing: 1px;
 }
 
+.text {
+  color: white;
+  width: 400px;
+  font-size: 1rem;
+  font-family: sans-serif;
+}
 .start {
   width: 400px;
   display: flex;
