@@ -113,7 +113,7 @@ export default function App() {
       </div>
 
       <div className='start'>
-        <button onClick={startGame}>Start Game</button>
+        <button onClick={startGame}>Start</button>
 
         <div className='keymove'>
           {/* up 38: [0, -2] */}

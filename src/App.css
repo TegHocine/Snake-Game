@@ -75,7 +75,6 @@ body {
   margin-top: 1rem;
 }
 .start > button {
-  margin: 1rem 0;
   font-size: 1rem;
   letter-spacing: 2px;
   border: none;
@@ -102,7 +101,6 @@ body {
   flex-direction: column;
   place-items: center;
   justify-content: center;
-  margin-right: 1rem;
 }
 
 @media (min-width: 640px) {
