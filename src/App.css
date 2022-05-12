@@ -84,7 +84,7 @@ body {
   border-radius: 30px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  max-height: 2.5rem;
+  height: fit-content;
 }
 
 .start > button:hover {
@@ -93,7 +93,6 @@ body {
 
 .keymove {
   position: relative;
-
   padding: 0.5rem;
   background-color: rgb(8, 100, 65);
   height: 100px;
