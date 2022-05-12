@@ -7,10 +7,18 @@ body {
   place-content: center;
 }
 
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
 .border {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  aspect-ratio: 1/1;
+  height: auto;
   border: 1px solid gray;
   overflow: hidden;
 }
@@ -18,7 +26,6 @@ body {
 .snake {
   height: 2%;
   width: 2%;
-
   background-color: #0ff09a;
   position: absolute;
   outline: 1px solid white;
@@ -56,12 +63,12 @@ body {
 
 .text {
   color: white;
-  width: 400px;
+  width: 300px;
   font-size: 1rem;
   font-family: sans-serif;
 }
 .start {
-  width: 400px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,8 +93,9 @@ body {
 
 .keymove {
   position: relative;
+
   padding: 0.5rem;
-  background-color: rgb(7, 165, 112);
+  background-color: rgb(8, 100, 65);
   height: 100px;
   width: 100px;
   border-radius: 9999px;
@@ -96,6 +104,12 @@ body {
   place-items: center;
   justify-content: center;
   margin-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .keymove {
+    display: none;
+  }
 }
 
 .keys {
@@ -135,4 +149,18 @@ body {
 
 .down > img {
   transform: rotate(-90deg);
+}
+
+@media (min-width: 640px) {
+  .border {
+    width: 450px;
+    aspect-ratio: 1/1;
+    height: auto;
+  }
+  .start {
+    width: 450px;
+  }
+  .text {
+    width: 450px;
+  }
 }

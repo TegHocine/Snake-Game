@@ -7,7 +7,6 @@ import Food from './food/Food'
 import './App.css'
 import arrow from './arrow.png'
 
-const BORDER_SIZE = [400, 400]
 const DIRECTIONS = {
   38: [0, -2], // up
   40: [0, 2], // down
@@ -92,17 +91,15 @@ export default function App() {
   }
 
   return (
-    <div role='button' tabIndex='0' onKeyDown={(e) => moveSnake(e)}>
+    <div
+      className='container'
+      role='button'
+      tabIndex='0'
+      onKeyDown={(e) => moveSnake(e)}>
       <p className='text'>
         Move with keyboard arrow keys or with the directions below
       </p>
-      <div
-        className='border'
-        style={{
-          border: '1px solid gray',
-          width: `${BORDER_SIZE[0]}px`,
-          height: `${BORDER_SIZE[0]}px`
-        }}>
+      <div className='border'>
         {snake.map((snake, i) => (
           <Snake key={i} position={snake} />
         ))}
